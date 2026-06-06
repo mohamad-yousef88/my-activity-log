@@ -1,41 +1,104 @@
-name: Log private commits to public repo
+name: Log all private commits to public dashboard
+
+# السماح بالكتابة إلى المستودع
+permissions:
+  contents: write
 
 on:
-  push:
-    branches: [ main, master ]
+  # تشغيل يدوي من واجهة GitHub
+  workflow_dispatch:
+  
+  # تشغيل تلقائي كل أسبوع (يوم الأحد منتصف الليل)
   schedule:
-    - cron: '0 0 * * 0'  # كل أسبوع
+    - cron: '0 0 * * 0'
 
 jobs:
-  update-log:
+  collect-activity:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout private repo
+      # ============================================
+      # 1. سحب نشاط مستودع auto-reply
+      # ============================================
+      - name: Checkout auto-reply private repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Generate commit log
+          repository: mohamad-yousef88/auto-reply
+          token: ${{ secrets.PAT_TOKEN }}
+          fetch-depth: 50
+          
+      - name: Generate log for auto-reply
         run: |
-          echo "# 🚀 Activity Log for Auto Reply Facebook" > activity.md
+          echo "# 📊 My Complete GitHub Activity Log" > activity.md
           echo "" >> activity.md
-          echo "Last 15 commits from private repository:" >> activity.md
+          echo "## 📁 Auto Reply Facebook" >> activity.md
           echo "" >> activity.md
-          git log -15 --pretty=format:"- **%s** (%h) by %an on %ad" --date=short >> activity.md
+          echo "Last 20 commits from private repository:" >> activity.md
           echo "" >> activity.md
+          git log -20 --pretty=format:"- %s (%h) by %an on %ad" --date=short >> activity.md
+          echo "" >> activity.md
+          echo "" >> activity.md
+          
+      # ============================================
+      # 2. سحب نشاط مستودع homney
+      # ============================================
+      - name: Checkout homney private repo
+        uses: actions/checkout@v4
+        with:
+          repository: mohamad-yousef88/homney
+          token: ${{ secrets.PAT_TOKEN }}
+          fetch-depth: 50
+          path: ./homney-temp
+          
+      - name: Append log for homney
+        run: |
+          echo "## 🏠 Homney Project" >> activity.md
+          echo "" >> activity.md
+          echo "Last 20 commits from private repository:" >> activity.md
+          echo "" >> activity.md
+          cd ./homney-temp
+          git log -20 --pretty=format:"- %s (%h) by %an on %ad" --date=short >> ../activity.md
+          cd ..
+          echo "" >> activity.md
+          echo "" >> activity.md
+          
+      # ============================================
+      # 3. إضافة توقيع وتاريخ التقرير
+      # ============================================
+      - name: Add timestamp and footer
+        run: |
           echo "---" >> activity.md
-          echo "Generated automatically by GitHub Action" >> activity.md
-
-      - name: Push to public repo
+          echo "" >> activity.md
+          echo "📅 Report generated on: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> activity.md
+          echo "" >> activity.md
+          echo "> This log is automatically generated weekly to document my development activity as proof of work." >> activity.md
+          
+      # ============================================
+      # 4. دفع التقرير إلى المستودع العام
+      # ============================================
+      - name: Push to public repository
         env:
-          PUBLIC_REPO_TOKEN: ${{ secrets.PUBLIC_REPO_TOKEN }}
+          PUBLIC_TOKEN: ${{ secrets.PUBLIC_REPO_TOKEN }}
         run: |
-          git clone https://x-access-token:${PUBLIC_REPO_TOKEN}@github.com/YOUR_USERNAME/my-activity-log.git public-log
+          # استنساخ المستودع العام
+          git clone https://x-access-token:${PUBLIC_TOKEN}@github.com/mohamad-yousef88/my-activity-log.git public-log
+          
+          # نسخ ملف النشاط
           cp activity.md public-log/README.md
+          
+          # إعداد git
           cd public-log
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # إضافة ودفع التغييرات
           git add README.md
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update activity log from private repo [skip ci]"
-          git push
+          
+          # التحقق مما إذا كان هناك تغييرات
+          if git diff --cached --quiet; then
+            echo "✅ No new changes to commit"
+          else
+            git commit -m "📊 Update activity log [skip ci] - $(date '+%Y-%m-%d')"
+            git push
+            echo "✅ Successfully pushed to public repository"
+          fi
