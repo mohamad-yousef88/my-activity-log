@@ -78,7 +78,7 @@ jobs:
       # ============================================
       - name: Push to public repository
         env:
-          PUBLIC_TOKEN: ${{ secrets.PUBLIC_REPO_TOKEN }}
+          PUBLIC_TOKEN: ${{ secrets.PULIC_REPO_TOKEN }}
         run: |
           # استنساخ المستودع العام
           git clone https://x-access-token:${PUBLIC_TOKEN}@github.com/mohamad-yousef88/my-activity-log.git public-log
