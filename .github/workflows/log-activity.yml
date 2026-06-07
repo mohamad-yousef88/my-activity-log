@@ -71,7 +71,7 @@ jobs:
         env:
           PUBLIC_TOKEN: ${{ secrets.PUBLIC_REPO_TOKEN || secrets.PULIC_REPO_TOKEN || secrets.WORKFLOW_PAT || github.token }}
         run: |
-          git clone https://x-access-token:${PUBLIC_TOKEN}@github.com/mohamad-yousef88/my-activity-log.git public-log
+          git clone https://x-access-token:${PULIC_TOKEN}@github.com/mohamad-yousef88/my-activity-log.git public-log
           
   
           cp activity.md public-log/README.md
