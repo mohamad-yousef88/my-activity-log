@@ -1,0 +1,15 @@
+name: Generate Stats
+on: 
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate contribution chart
+        run: |
+          echo "## 📈 Weekly Contribution Chart" >> stats.md
+          echo "Mon Tue Wed Thu Fri Sat Sun" >> stats.md
+          echo "██  ██  ██  ██  ██  ██  ██" >> stats.md
