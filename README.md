@@ -31,6 +31,34 @@ Last 20 commits from private repository:
 - الكود النهائي بعد جميع التعديلات (b5935e3) by Mohamad yousef on 2026-04-13
 - first commit (7940d24) by Mohamad yousef on 2026-04-13
 
+  # 📊 My GitHub Activity Log
+
+![Last Update](https://img.shields.io/github/last-commit/mohamad-yousef88/my-activity-log)
+![Workflow Status](https://github.com/mohamad-yousef88/my-activity-log/actions/workflows/log-activity.yml/badge.svg)
+
+## 📈 Weekly Activity Summary
+
+| Project | Commits (Last 7 days) | Last Active |
+|---------|----------------------|-------------|
+| Auto Reply Facebook | 12 commits | 2026-06-07 |
+| Homney | 5 commits | 2026-06-06 |
+
+---
+
+## 📁 Recent Commits
+
+### 🤖 Auto Reply Facebook
+- Added new feature (a1b2c3d) on 2026-06-07
+- Fixed bug in login (d4e5f6g) on 2026-06-06
+
+### 🏠 Homney
+- Updated UI (h7i8j9k) on 2026-06-06
+
+---
+
+> ⏱️ This log is automatically updated weekly  
+> 📅 Last generated: [Date
+
 ---
 
 📅 Report generated on: 2026-06-07 15:45:35 UTC
