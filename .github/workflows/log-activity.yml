@@ -17,7 +17,7 @@ jobs:
     
     steps:
     
-      - name: Checkout auto-reply private repo
+      - name: Checkout auto_reply_facebook private repo
         uses: actions/checkout@v4
         with:
           repository: mohamad-yousef88/auto_reply_facebook
