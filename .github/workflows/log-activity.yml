@@ -69,7 +69,7 @@ jobs:
   
       - name: Push to public repository
         env:
-          PUBLIC_TOKEN: ${{ secrets.PUBLIC_REPO_TOKEN || secrets.PULIC_REPO_TOKEN || secrets.WORKFLOW_PAT || github.token }}
+          PUBLIC_TOKEN: ${{ github.token }}
         run: |
           git clone https://x-access-token:${PUBLIC_TOKEN}@github.com/mohamad-yousef88/my-activity-log.git public-log
           
