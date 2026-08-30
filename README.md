@@ -11,29 +11,29 @@ Last 20 commits from private repository:
 
 Last 20 commits from private repository:
 
-- Update config.py (6d9b77e) by mohamad-yousef88 on 2026-08-21
-- Update config.py (49f64e4) by mohamad-yousef88 on 2026-08-21
-- Add Python version to config (f302e0c) by mohamad-yousef88 on 2026-08-21
-- Update config.py (9616ae1) by mohamad-yousef88 on 2026-08-21
-- Update config.py (66106c9) by mohamad-yousef88 on 2026-08-21
-- Update config.py (814cf08) by mohamad-yousef88 on 2026-08-21
-- Update config.py (9c564e8) by mohamad-yousef88 on 2026-08-21
-- Update config.py (b19126c) by mohamad-yousef88 on 2026-08-21
-- Update requirements.txt (6df85bb) by mohamad-yousef88 on 2026-08-21
-- Modify .env for production database and Redis URLs (939de21) by mohamad-yousef88 on 2026-08-21
-- Fix DATABASE_URL connection string format (5019575) by mohamad-yousef88 on 2026-08-17
-- Update requirements.txt (ce68ee0) by mohamad-yousef88 on 2026-08-17
-- Update .env (b2babe8) by mohamad-yousef88 on 2026-08-17
-- Update requirements.txt with new package versions (3a862ec) by mohamad-yousef88 on 2026-08-17
-- feat(auth): enhance login response and property endpoints (74a6031) by Mohamad yousef on 2026-08-17
-- finish (22b2f26) by Mohamad yousef on 2026-04-14
-- vvv (cb51612) by Mohamad yousef on 2026-04-14
-- sssssssss (f4f5dfc) by Mohamad yousef on 2026-04-14
-- إزالة خدمة البريد الإلكتروني بالكامل (تأكيد واستعادة كلمة المرور) (58181a3) by Mohamad yousef on 2026-04-14
-- smtp email (36edef6) by Mohamad yousef on 2026-04-14
+- Update document_share_service.py (ac85d15) by mohamad-yousef88 on 2026-08-29
+- Update document_share_service.py (cac2304) by mohamad-yousef88 on 2026-08-29
+- Fix missing await in document access functions (c31de38) by mohamad-yousef88 on 2026-08-29
+- Update document_share_service.py (f51c7a0) by mohamad-yousef88 on 2026-08-29
+- Add await to document access methods (5f15a34) by mohamad-yousef88 on 2026-08-29
+- Change document access methods to async (7c67496) by mohamad-yousef88 on 2026-08-29
+- Update document_share_service.py (ff38cb7) by mohamad-yousef88 on 2026-08-29
+- Update document sharing functions to synchronous calls (51f1e31) by mohamad-yousef88 on 2026-08-29
+- Update properties.py (13a39cc) by mohamad-yousef88 on 2026-08-29
+- Update document_share_service.py (c26e7a4) by mohamad-yousef88 on 2026-08-29
+- Enhance document access sharing logic (ce17dd8) by mohamad-yousef88 on 2026-08-29
+- Update admin.py (358c4f6) by mohamad-yousef88 on 2026-08-29
+- Enhance revoke_professional_mode with immediate cancellation (3815a74) by mohamad-yousef88 on 2026-08-29
+- Update admin.py (adc999c) by mohamad-yousef88 on 2026-08-29
+- Implement get_professional_subscribers endpoint (40f1793) by mohamad-yousef88 on 2026-08-29
+- Refactor success and cancel URLs in professional.py (64bdd05) by mohamad-yousef88 on 2026-08-29
+- Update statistics_cache_service.py (f804072) by mohamad-yousef88 on 2026-08-29
+- Enhance RedisClient with Upstash support and timeout settings (21154f1) by mohamad-yousef88 on 2026-08-29
+- Update config.py (c8b47e2) by mohamad-yousef88 on 2026-08-29
+- Fix syntax for pool_timeout parameter in db.py (b16861f) by mohamad-yousef88 on 2026-08-29
 
 ---
 
-📅 Report generated on: 2026-08-23 01:12:43 UTC
+📅 Report generated on: 2026-08-30 03:43:52 UTC
 
 > This log is automatically generated weekly to document my development activity as proof of work.
